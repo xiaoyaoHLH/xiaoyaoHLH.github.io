@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<title>
+  
+    java知识点（一）
+  
+</title>
+
+<meta name="description" content="1.面向对象的特征   抽象：将一类对象的共同特征总结出来构造类的过程，包括数据抽象和行为抽象。抽象只关注对象有哪些属性和行为，并不关注这些行为的细节。   继承：从已有类得到继承信息创建新类的过程。提供信息的是父类，得到信息的是子类。   封装：通常认为封装是把数据和操作数据的方法绑定起来，对数据访问只提供接口。   多态性：多态性是指不同子类型的对象对同一消息做出的不同回应。 2.final、">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java知识点（一）">
+<meta property="og:url" content="http://yoursite.com/2018/03/03/java知识点（一）/index.html">
+<meta property="og:site_name" content="何林鸿个人博客">
+<meta property="og:description" content="1.面向对象的特征   抽象：将一类对象的共同特征总结出来构造类的过程，包括数据抽象和行为抽象。抽象只关注对象有哪些属性和行为，并不关注这些行为的细节。   继承：从已有类得到继承信息创建新类的过程。提供信息的是父类，得到信息的是子类。   封装：通常认为封装是把数据和操作数据的方法绑定起来，对数据访问只提供接口。   多态性：多态性是指不同子类型的对象对同一消息做出的不同回应。 2.final、">
+<meta property="og:updated_time" content="2018-03-05T01:19:19.981Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="java知识点（一）">
+<meta name="twitter:description" content="1.面向对象的特征   抽象：将一类对象的共同特征总结出来构造类的过程，包括数据抽象和行为抽象。抽象只关注对象有哪些属性和行为，并不关注这些行为的细节。   继承：从已有类得到继承信息创建新类的过程。提供信息的是父类，得到信息的是子类。   封装：通常认为封装是把数据和操作数据的方法绑定起来，对数据访问只提供接口。   多态性：多态性是指不同子类型的对象对同一消息做出的不同回应。 2.final、">
+
+
+  <link rel="alternative" href="/atom.xml" title="何林鸿个人博客" type="application/atom+xml">
+
+
+
+  <link rel="icon" href="/favicon.png">
+
+
+<link rel="stylesheet" href="/perfect-scrollbar/css/perfect-scrollbar.min.css">
+<link rel="stylesheet" href="/styles/main.css">
+
+
+
+
+
+
+</head>
+<body
+  
+    class="monochrome"
+  
+  >
+  <div class="mobile-header">
+  <button class="sidebar-toggle" type="button">
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
+  <a class="title" href="/">何林鸿个人博客</a>
+</div>
+
+  <div class="main-container">
+    <div class="sidebar">
+  <div class="header">
+    <h1 class="title"><a href="/">何林鸿个人博客</a></h1>
+    
+      <p class="subtitle">
+        java研发
+      </p>
+    
+    <div class="info">
+      <div class="content">
+        
+        
+          <div class="author">何林鸿</div>
+        
+      </div>
+      
+        <div class="avatar">
+          
+            <a href="/about"><img src="http://npic7.edushi.com/cn/zixun/zh-chs/2018-02/28/4305161-201802281415253083.jpg"></a>
+          
+        </div>
+      
+    </div>
+  </div>
+  <div class="body">
+    
+      
+        <ul class="nav">
+          
+            
+              <li class="category-list-container">
+                <a href="javascript:;">分类</a>
+                
+              </li>
+            
+          
+            
+              <li class="tag-list-container">
+                <a href="javascript:;">标签</a>
+                
+              </li>
+            
+          
+            
+              <li class="archive-list-container">
+                <a href="javascript:;">归档</a>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">2018</a><span class="archive-list-count">4</span></li></ul>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li>
+                <a href="/" title="Homepage">Homepage</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="/archives" title="By Year">By Year</a>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li>
+                <a href="https://github.com/xiaoyaoHLH/xiaoyaoHLH.github.io" title="源码" target="_blank" rel="noopener">源码</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="https://github.com/xiaoyaoHLH" title="Github" target="_blank" rel="noopener">Github</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="/atom.xml" title="RSS">RSS</a>
+              </li>
+            
+          
+        </ul>
+      
+    
+  </div>
+</div>
+
+    <div class="main-content">
+      
+        <div style="max-width: 1000px">
+      
+          <article id="post-java知识点（一）" class="article article-type-post">
+  
+    <h1 class="article-header">
+      java知识点（一）
+    </h1>
+  
+  
+
+  <div class="article-info">
+    <span class="article-date">
+  2018-03-03
+</span>
+
+    
+
+    
+
+  </div>
+  <div class="article-entry">
+    <p>1.面向对象的特征<br>   抽象：将一类对象的共同特征总结出来构造类的过程，包括数据抽象和行为抽象。抽象只关注对象有哪些属性和行为，并不关注这些行为的细节。<br>   继承：从已有类得到继承信息创建新类的过程。提供信息的是父类，得到信息的是子类。<br>   封装：通常认为封装是把数据和操作数据的方法绑定起来，对数据访问只提供接口。<br>   多态性：多态性是指不同子类型的对象对同一消息做出的不同回应。</p>
+<p>2.final、finally、finalize的区别。</p>
+<ul>
+<li>final：修饰符（关键字）有三种用法：如果一个类被声明为final，意味着它不能再派生出新的子类，即不能被继承，因此它和abstract是反义词。将变量声明为final，可以保证它们在使用中不被改变，被声明为final的变量必须在声明时给定初值，而在以后的引用中只能读取不可修改。被声明为final的方法也同样只能使用，不能在子类中被重写。</li>
+<li>finally：通常放在try…catch…的后面构造总是执行代码块，这就意味着程序无论正常执行还是发生异常，这里的代码只要JVM不关闭都能执行，可以将释放外部资源的代码写在finally块中。</li>
+<li>finalize：Object类中定义的方法，Java中允许使用finalize()方法在垃圾收集器将对象从内存中清除出去之前做必要的清理工作。这个方法是由垃圾收集器在销毁对象时调用的，通过重写finalize()方法可以整理系统资源或者执行其他清理工作。</li>
+</ul>
+<p>3.map,set,list之间的区别：<br>Map是键值对映射容器，与List和Set有明显的区别，而Set存储的零散的元素且不允许有重复元素（数学中的集合也是如此），List是线性结构的容器，适用于按数值索引访问元素的情形。</p>
+<p>4.TreeMap和TreeSet在排序时如何比较元素？Collections工具类中的sort()方法比较元素<br>TreeSet要求存放的对象所属的类必须实现Comparable接口，该接口提供了比较元素的compareTo()方法，当插入元素时会回调该方法比较元素的大小。TreeMap要求存放的键值对映射的键必须实现Comparable接口从而根据键对元素进行排序。Collections工具类的sort方法有两种重载的形式，第一种要求传入的待排序容器中存放的对象比较实现Comparable接口以实现元素的比较；第二种不强制性的要求容器中的元素必须可比较，但是要求传入第二个参数，参数是Comparator接口的子类型（需要重写compare方法实现元素的比较），相当于一个临时定义的排序规则，其实就是通过接口注入比较元素大小的算法，也是对回调模式的应用（Java中对函数式编程的支持）。<br>例子1：</p>
+<p>public class Student implements Comparable<student> {<br>    private String name;        // 姓名<br>    private int age;            // 年龄</student></p>
+<pre><code>public Student(String name, int age) {
+    this.name = name;
+    this.age = age;
+}
+
+@Override
+public String toString() {
+    return &quot;Student [name=&quot; + name + &quot;, age=&quot; + age + &quot;]&quot;;
+}
+
+@Override
+public int compareTo(Student o) {
+    return this.age - o.age; // 比较年龄(年龄的升序)
+}
+</code></pre><p>}</p>
+<p>import java.util.Set;<br>import java.util.TreeSet;</p>
+<p>class Test01 {</p>
+<pre><code>public static void main(String[] args) {
+    Set&lt;Student&gt; set = new TreeSet&lt;&gt;();     // Java 7的钻石语法(构造器后面的尖括号中不需要写类型)
+    set.add(new Student(&quot;Hao LUO&quot;, 33));
+    set.add(new Student(&quot;XJ WANG&quot;, 32));
+    set.add(new Student(&quot;Bruce LEE&quot;, 60));
+    set.add(new Student(&quot;Bob YANG&quot;, 22));
+
+    for(Student stu : set) {
+        System.out.println(stu);
+    }
+</code></pre><p>//      输出结果:<br>//      Student [name=Bob YANG, age=22]<br>//      Student [name=XJ WANG, age=32]<br>//      Student [name=Hao LUO, age=33]<br>//      Student [name=Bruce LEE, age=60]<br>    }<br>}</p>
+<p>例子2：</p>
+<p>public class Student {<br>    private String name;    // 姓名<br>    private int age;        // 年龄</p>
+<pre><code>public Student(String name, int age) {
+    this.name = name;
+    this.age = age;
+}
+
+/**
+ * 获取学生姓名
+ */
+public String getName() {
+    return name;
+}
+
+/**
+ * 获取学生年龄
+ */
+public int getAge() {
+    return age;
+}
+
+@Override
+public String toString() {
+    return &quot;Student [name=&quot; + name + &quot;, age=&quot; + age + &quot;]&quot;;
+}
+</code></pre><p>}</p>
+<p>import java.util.ArrayList;<br>import java.util.Collections;<br>import java.util.Comparator;<br>import java.util.List;</p>
+<p>class Test02 {</p>
+<pre><code>public static void main(String[] args) {
+    List&lt;Student&gt; list = new ArrayList&lt;&gt;();     // Java 7的钻石语法(构造器后面的尖括号中不需要写类型)
+    list.add(new Student(&quot;Hao LUO&quot;, 33));
+    list.add(new Student(&quot;XJ WANG&quot;, 32));
+    list.add(new Student(&quot;Bruce LEE&quot;, 60));
+    list.add(new Student(&quot;Bob YANG&quot;, 22));
+
+    // 通过sort方法的第二个参数传入一个Comparator接口对象
+    // 相当于是传入一个比较对象大小的算法到sort方法中
+    // 由于Java中没有函数指针、仿函数、委托这样的概念
+    // 因此要将一个算法传入一个方法中唯一的选择就是通过接口回调
+    Collections.sort(list, new Comparator&lt;Student&gt; () {
+
+        @Override
+        public int compare(Student o1, Student o2) {
+            return o1.getName().compareTo(o2.getName());    // 比较学生姓名
+        }
+    });
+
+    for(Student stu : list) {
+        System.out.println(stu);
+    }
+</code></pre><p>//      输出结果:<br>//      Student [name=Bob YANG, age=22]<br>//      Student [name=Bruce LEE, age=60]<br>//      Student [name=Hao LUO, age=33]<br>//      Student [name=XJ WANG, age=32]<br>    }<br>}</p>
+
+  </div>
+  <footer class="article-footer">
+    
+  <div class="cc">
+    <a href="http://creativecommons.org/licenses/by-sa/4.0/deed.en" target="_blank" title="署名-相同方式共享">
+      <img src="/images/cc/cc.png">
+      
+          <img src="/images/cc/by.png">
+        
+          <img src="/images/cc/sa.png">
+      
+      <span>
+        本作品采用知识共享 署名-相同方式共享 4.0 国际许可协议进行许可。
+      </span>
+    </a>
+  </div>
+
+
+    
+
+  </footer>
+</article>
+
+
+
+
+
+
+
+          <div class="main-footer">
+  
+    © 2018 何林鸿个人博客 - Powered by <a href="http://hexo.io" target="_blank">Hexo</a> - Theme <a href="https://github.com/denjones/hexo-theme-chan" target="_blank">Chan</a>
+  
+</div>
+
+      
+        </div>
+      
+    </div>
+  </div>
+  <script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="/PhotoSwipe/photoswipe.css">
+  <link rel="stylesheet" href="/PhotoSwipe/default-skin/default-skin.css">
+
+  <!-- Root element of PhotoSwipe. Must have class pswp. -->
+  <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe.
+             It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+      <!-- Container that holds slides.
+                PhotoSwipe keeps only 3 of them in the DOM to save memory.
+                Don't modify these 3 pswp__item elements, data is added later on. -->
+      <div class="pswp__container">
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+      </div>
+
+      <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+      <div class="pswp__ui pswp__ui--hidden">
+
+        <div class="pswp__top-bar">
+
+          <!--  Controls are self-explanatory. Order can be changed. -->
+
+          <div class="pswp__counter"></div>
+
+          <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+          <button class="pswp__button pswp__button--share" title="Share"></button>
+
+          <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+          <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+          <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+          <!-- element will get class pswp__preloader--active when preloader is running -->
+          <div class="pswp__preloader">
+            <div class="pswp__preloader__icn">
+              <div class="pswp__preloader__cut">
+                <div class="pswp__preloader__donut"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+          <div class="pswp__share-tooltip"></div>
+        </div>
+
+        <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+
+        <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+        <div class="pswp__caption">
+          <div class="pswp__caption__center"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/PhotoSwipe/photoswipe.js"></script>
+  <script src="/PhotoSwipe/photoswipe-ui-default.js"></script>
+
+
+<script src="/perfect-scrollbar/js/min/perfect-scrollbar.min.js"></script>
+<script src="/scripts/main.js"></script>
+
+</body>
+</html>
