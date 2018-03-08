@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<title>
+  
+    java知识点--面向对象
+  
+</title>
+
+<meta name="description" content="Java的四个基本特性（抽象、封装、继承，多态），对多态的理解(多态的实现方式)以及在项目中那些地方用到多态 • Java的四个基本特性 ○ 抽象：抽象是将一类对象的共同特征总结出来构造类的过程，包括数据抽象和行为抽象两方面。抽象只关注对象有哪些 属性和行为，并不关注这些行为的细节是什么。 ○ 继承：继承是从已有类得到继承信息创建新类的过程。提供继承信息的类被称为父类（超类、基类）；得到继承信息">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java知识点--面向对象">
+<meta property="og:url" content="http://yoursite.com/2018/03/08/java知识点-面向对象/index.html">
+<meta property="og:site_name" content="何林鸿个人博客">
+<meta property="og:description" content="Java的四个基本特性（抽象、封装、继承，多态），对多态的理解(多态的实现方式)以及在项目中那些地方用到多态 • Java的四个基本特性 ○ 抽象：抽象是将一类对象的共同特征总结出来构造类的过程，包括数据抽象和行为抽象两方面。抽象只关注对象有哪些 属性和行为，并不关注这些行为的细节是什么。 ○ 继承：继承是从已有类得到继承信息创建新类的过程。提供继承信息的类被称为父类（超类、基类）；得到继承信息">
+<meta property="og:updated_time" content="2018-03-08T06:37:53.747Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="java知识点--面向对象">
+<meta name="twitter:description" content="Java的四个基本特性（抽象、封装、继承，多态），对多态的理解(多态的实现方式)以及在项目中那些地方用到多态 • Java的四个基本特性 ○ 抽象：抽象是将一类对象的共同特征总结出来构造类的过程，包括数据抽象和行为抽象两方面。抽象只关注对象有哪些 属性和行为，并不关注这些行为的细节是什么。 ○ 继承：继承是从已有类得到继承信息创建新类的过程。提供继承信息的类被称为父类（超类、基类）；得到继承信息">
+
+
+  <link rel="alternative" href="/atom.xml" title="何林鸿个人博客" type="application/atom+xml">
+
+
+
+  <link rel="icon" href="/favicon.png">
+
+
+<link rel="stylesheet" href="/perfect-scrollbar/css/perfect-scrollbar.min.css">
+<link rel="stylesheet" href="/styles/main.css">
+
+
+
+
+
+
+</head>
+<body
+  
+    class="monochrome"
+  
+  >
+  <div class="mobile-header">
+  <button class="sidebar-toggle" type="button">
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
+  <a class="title" href="/">何林鸿个人博客</a>
+</div>
+
+  <div class="main-container">
+    <div class="sidebar">
+  <div class="header">
+    <h1 class="title"><a href="/">何林鸿个人博客</a></h1>
+    
+      <p class="subtitle">
+        java研发
+      </p>
+    
+    <div class="info">
+      <div class="content">
+        
+        
+          <div class="author">何林鸿</div>
+        
+      </div>
+      
+        <div class="avatar">
+          
+            <a href="/about"><img src="http://npic7.edushi.com/cn/zixun/zh-chs/2018-02/28/4305161-201802281415253083.jpg"></a>
+          
+        </div>
+      
+    </div>
+  </div>
+  <div class="body">
+    
+      
+        <ul class="nav">
+          
+            
+              <li class="category-list-container">
+                <a href="javascript:;">Category</a>
+                
+              </li>
+            
+          
+            
+              <li class="tag-list-container">
+                <a href="javascript:;">Tag</a>
+                
+              </li>
+            
+          
+            
+              <li class="archive-list-container">
+                <a href="javascript:;">Archive</a>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">2018</a><span class="archive-list-count">7</span></li></ul>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li>
+                <a href="/" title="Homepage">Homepage</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="/archives" title="By Year">By Year</a>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li>
+                <a href="https://github.com/xiaoyaoHLH/xiaoyaoHLH.github.io" title="源码" target="_blank" rel="noopener">源码</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="https://github.com/xiaoyaoHLH" title="Github" target="_blank" rel="noopener">Github</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="/atom.xml" title="RSS">RSS</a>
+              </li>
+            
+          
+        </ul>
+      
+    
+  </div>
+</div>
+
+    <div class="main-content">
+      
+        <div style="max-width: 1000px">
+      
+          <article id="post-java知识点-面向对象" class="article article-type-post">
+  
+    <h1 class="article-header">
+      java知识点--面向对象
+    </h1>
+  
+  
+
+  <div class="article-info">
+    <span class="article-date">
+  2018-03-08
+</span>
+
+    
+
+    
+
+  </div>
+  <div class="article-entry">
+    <ol>
+<li><p>Java的四个基本特性（抽象、封装、继承，多态），对多态的理解(多态的实现方式)以及在项目中那些地方用到多态 • Java的四个基本特性 ○ 抽象：抽象是将一类对象的共同特征总结出来构造类的过程，包括数据抽象和行为抽象两方面。抽象只关注对象有哪些 属性和行为，并不关注这些行为的细节是什么。 ○ 继承：继承是从已有类得到继承信息创建新类的过程。提供继承信息的类被称为父类（超类、基类）；得到继承信息的 类被称为子类（派生类）。继承让变化中的软件系统有了一定的延续性，同时继承也是封装程序中可变因素的重要手 段。 ○ 封装：通常认为封装是把数据和操作数据的方法绑定起来，对数据的访问只能通过已定义的接口。面向对象的本质就 是将现实世界描绘成一系列完全自治、封闭的对象。我们在类中编写的方法就是对实现细节的一种封装；我们编写一个 类就是对数据和数据操作的封装。可以说，封装就是隐藏一切可隐藏的东西，只向外界提供简单的编程接口。 ○ 多态性是指允许不同子类型的对象对同一消息作出不同的响应。 • 多态的理解(多态的实现方式) ○ 方法重载（overload）实现的是编译时的多态性（也称为前绑定）。 ○ 方法重写（override）实现的是运行时的多态性（也称为后绑定）。运行时的多态是面向对象精髓的东西。 ○ 要实现多态需要做两件事：1). 方法重写（子类继承父类并重写父类中已有的或抽象的方法）；2). 对象造型（用父类型 引用引用子类型对象，这样同样的引用调用同样的方法就会根据子类对象的不同而表现出不同的行为）。 • 项目中对多态的应用 ○ 举一个简单的例子，在物流信息管理系统中，有两种用户：订购客户和卖房客户，两个客户都可以登录系统，他们有相 同的方法Login，但登陆之后他们会进入到不同的页面，也就是在登录的时候会有不同的操作，两种客户都继承父类的 Login方法，但对于不同的对象，拥有不同的操作。</p>
+</li>
+<li><p>面向对象和面向过程的区别？用面向过程可以实现面向对象吗？那是不是不能面向对象？<br>• 面向对象和面向过程的区别<br>○ 面向过程就像是一个细心的管家，事无具细的都要考虑到。而面向对象就像是个家用电器，你只需要知道他的功能，不 需要知道它的工作原理。<br>○ 面向过程”是一种是事件为中心的编程思想。就是分析出解决问题所需的步骤，然后用函数把这些步骤实现，并按顺序 调用。面向对象是以“对象”为中心的编程思想。<br>○ 简单的举个例子：汽车发动、汽车到站<br>• 这对于“面向过程”来说，是两个事件，汽车启动是一个事件，汽车到站是另一个事件，面向过程编程的过程中 我们关心的是事件，而不是汽车本身。针对上述两个事件，形成两个函数，之 后依次调用。<br>• 然而这对于面向对象来说，我们关心的是汽车这类对象，两个事件只是这类对象所具有的行为。而且对于这两个 行为的顺序没有强制要求。<br>• 用面向过程可以实现面向对象吗<br>• 那是不是不能面向对象 </p>
+</li>
+<li><p>重载和重写，如何确定调用哪个函数<br>• 重载：重载发生在同一个类中，同名的方法如果有不同的参数列表（参数类型不同、参数个数不同或者二者都不同）则视为 重载。<br>• 重写：重写发生在子类与父类之间，重写要求子类被重写方法与父类被重写方法有相同的返回类型，比父类被重写方法更好 访问，不能比父类被重写方法声明更多的异常（里氏代换原则）。根据不同的子类对象确定调用的那个方法。 </p>
+</li>
+<li><p>面向对象开发的六个基本原则(单一职责、开放封闭、里氏替换、依赖倒置、合成聚合复用、接口隔离)，迪米特法则。在项目中用 过哪些原则<br>• 六个基本原则<br>○ 单一职责：一个类只做它该做的事情(高内聚)。在面向对象中，如果只让一个类完成它该做的事，而不涉及与它无关的 领域就是践行了高内聚的原则，这个类就只有单一职责。<br>○ 开放封闭：软件实体应当对扩展开放，对修改关闭。要做到开闭有两个要点：①抽象是关键，一个系统中如果没有抽象 类或接口系统就没有扩展点；②封装可变性，将系统中的各种可变因素封装到一个继承结构中，如果多个可变因素混杂 在一起，系统将变得复杂而换乱。<br>○ 里氏替换：任何时候都可以用子类型替换掉父类型。子类一定是增加父类的能力而不是减少父类的能力，因为子类比父 类的能力更多，把能力多的对象当成能力少的对象来用当然没有任何问题。<br>○ 依赖倒置：面向接口编程。（该原则说得直白和具体一些就是声明方法的参数类型、方法的返回类型、变量的引用类型 时，尽可能使用抽象类型而不用具体类型，因为抽象类型可以被它的任何一个子类型所替代）<br>○ 合成聚和复用：优先使用聚合或合成关系复用代码。<br>○ 接口隔离：接口要小而专，绝不能大而全。臃肿的接口是对接口的污染，既然接口表示能力，那么一个接口只应该描述 一种能力，接口也应该是高度内聚的。<br>• 迪米特法则<br>○ 迪米特法则又叫少知识原则，一个对象应当对其他对象有尽可能少的了解。<br>• 项目中用到的原则<br>○ 单一职责、开放封闭、合成聚合复用(简单的例子就是String类)、接口隔离</p>
+</li>
+</ol>
+<p>5.static和final的区别和用途<br>• Static<br>○ 修饰变量：静态变量随着类加载时被完成初始化，内存中只有一个，且JVM也只会为它分配一次内存，所有类共享静 态变量。<br>○ 修饰方法：在类加载的时候就存在，不依赖任何实例；static方法必须实现，不能用abstract修饰。 ○ 修饰代码块：在类加载完之后就会执行代码块中的内容。<br>○ 父类静态代码块-&gt;子类静态代码块-&gt;父类非静态代码块-&gt;父类构造方法-&gt;子类非静态代码块-&gt;子类构造方法<br>• Final<br>○ 修饰变量：<br>   • 编译期常量：类加载的过程完成初始化，编译后带入到任何计算式中。只能是基本类型。<br>   • 运行时常量：基本数据类型或引用数据类型。引用不可变，但引用的对象内容可变。<br>○ 修饰方法：不能被继承，不能被子类修改。<br>○ 修饰类：不能被继承。<br>○ 修饰形参：final形参不可变</p>
+
+  </div>
+  <footer class="article-footer">
+    
+  <div class="cc">
+    <a href="http://creativecommons.org/licenses/by-sa/4.0/deed.en" target="_blank" title="Attribution-ShareAlike">
+      <img src="/images/cc/cc.png">
+      
+          <img src="/images/cc/by.png">
+        
+          <img src="/images/cc/sa.png">
+      
+      <span>
+        This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
+      </span>
+    </a>
+  </div>
+
+
+    
+
+  </footer>
+</article>
+
+
+
+
+
+
+
+          <div class="main-footer">
+  
+    © 2018 何林鸿个人博客 - Powered by <a href="http://hexo.io" target="_blank">Hexo</a> - Theme <a href="https://github.com/denjones/hexo-theme-chan" target="_blank">Chan</a>
+  
+</div>
+
+      
+        </div>
+      
+    </div>
+  </div>
+  <script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="/PhotoSwipe/photoswipe.css">
+  <link rel="stylesheet" href="/PhotoSwipe/default-skin/default-skin.css">
+
+  <!-- Root element of PhotoSwipe. Must have class pswp. -->
+  <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe.
+             It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+      <!-- Container that holds slides.
+                PhotoSwipe keeps only 3 of them in the DOM to save memory.
+                Don't modify these 3 pswp__item elements, data is added later on. -->
+      <div class="pswp__container">
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+      </div>
+
+      <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+      <div class="pswp__ui pswp__ui--hidden">
+
+        <div class="pswp__top-bar">
+
+          <!--  Controls are self-explanatory. Order can be changed. -->
+
+          <div class="pswp__counter"></div>
+
+          <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+          <button class="pswp__button pswp__button--share" title="Share"></button>
+
+          <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+          <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+          <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+          <!-- element will get class pswp__preloader--active when preloader is running -->
+          <div class="pswp__preloader">
+            <div class="pswp__preloader__icn">
+              <div class="pswp__preloader__cut">
+                <div class="pswp__preloader__donut"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+          <div class="pswp__share-tooltip"></div>
+        </div>
+
+        <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+
+        <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+        <div class="pswp__caption">
+          <div class="pswp__caption__center"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/PhotoSwipe/photoswipe.js"></script>
+  <script src="/PhotoSwipe/photoswipe-ui-default.js"></script>
+
+
+<script src="/perfect-scrollbar/js/min/perfect-scrollbar.min.js"></script>
+<script src="/scripts/main.js"></script>
+
+</body>
+</html>

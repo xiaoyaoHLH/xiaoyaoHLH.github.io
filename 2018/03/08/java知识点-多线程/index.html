@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<title>
+  
+    java知识点--多线程
+  
+</title>
+
+<meta name="description" content="1.多线程的实现方式：一种是继承Thread类；另一种是实现Runnable接口。两种方式都要通过重写run()方法来定义线程的行为，推荐使用后者，因为Java中的继承是单继承，一个类有一个父类，如果继承了Thread类就无法再继承其他类了，显然使用Runnable接口更为灵活。Java 5以后创建线程还有第三种方式：实现Callable接口，该接口中的call方法可以在线程执行结束时产生一个返回">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java知识点--多线程">
+<meta property="og:url" content="http://yoursite.com/2018/03/08/java知识点-多线程/index.html">
+<meta property="og:site_name" content="何林鸿个人博客">
+<meta property="og:description" content="1.多线程的实现方式：一种是继承Thread类；另一种是实现Runnable接口。两种方式都要通过重写run()方法来定义线程的行为，推荐使用后者，因为Java中的继承是单继承，一个类有一个父类，如果继承了Thread类就无法再继承其他类了，显然使用Runnable接口更为灵活。Java 5以后创建线程还有第三种方式：实现Callable接口，该接口中的call方法可以在线程执行结束时产生一个返回">
+<meta property="og:updated_time" content="2018-03-08T05:32:29.017Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="java知识点--多线程">
+<meta name="twitter:description" content="1.多线程的实现方式：一种是继承Thread类；另一种是实现Runnable接口。两种方式都要通过重写run()方法来定义线程的行为，推荐使用后者，因为Java中的继承是单继承，一个类有一个父类，如果继承了Thread类就无法再继承其他类了，显然使用Runnable接口更为灵活。Java 5以后创建线程还有第三种方式：实现Callable接口，该接口中的call方法可以在线程执行结束时产生一个返回">
+
+
+  <link rel="alternative" href="/atom.xml" title="何林鸿个人博客" type="application/atom+xml">
+
+
+
+  <link rel="icon" href="/favicon.png">
+
+
+<link rel="stylesheet" href="/perfect-scrollbar/css/perfect-scrollbar.min.css">
+<link rel="stylesheet" href="/styles/main.css">
+
+
+
+
+
+
+</head>
+<body
+  
+    class="monochrome"
+  
+  >
+  <div class="mobile-header">
+  <button class="sidebar-toggle" type="button">
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
+  <a class="title" href="/">何林鸿个人博客</a>
+</div>
+
+  <div class="main-container">
+    <div class="sidebar">
+  <div class="header">
+    <h1 class="title"><a href="/">何林鸿个人博客</a></h1>
+    
+      <p class="subtitle">
+        java研发
+      </p>
+    
+    <div class="info">
+      <div class="content">
+        
+        
+          <div class="author">何林鸿</div>
+        
+      </div>
+      
+        <div class="avatar">
+          
+            <a href="/about"><img src="http://npic7.edushi.com/cn/zixun/zh-chs/2018-02/28/4305161-201802281415253083.jpg"></a>
+          
+        </div>
+      
+    </div>
+  </div>
+  <div class="body">
+    
+      
+        <ul class="nav">
+          
+            
+              <li class="category-list-container">
+                <a href="javascript:;">Category</a>
+                
+              </li>
+            
+          
+            
+              <li class="tag-list-container">
+                <a href="javascript:;">Tag</a>
+                
+              </li>
+            
+          
+            
+              <li class="archive-list-container">
+                <a href="javascript:;">Archive</a>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">2018</a><span class="archive-list-count">7</span></li></ul>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li>
+                <a href="/" title="Homepage">Homepage</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="/archives" title="By Year">By Year</a>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li>
+                <a href="https://github.com/xiaoyaoHLH/xiaoyaoHLH.github.io" title="源码" target="_blank" rel="noopener">源码</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="https://github.com/xiaoyaoHLH" title="Github" target="_blank" rel="noopener">Github</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="/atom.xml" title="RSS">RSS</a>
+              </li>
+            
+          
+        </ul>
+      
+    
+  </div>
+</div>
+
+    <div class="main-content">
+      
+        <div style="max-width: 1000px">
+      
+          <article id="post-java知识点-多线程" class="article article-type-post">
+  
+    <h1 class="article-header">
+      java知识点--多线程
+    </h1>
+  
+  
+
+  <div class="article-info">
+    <span class="article-date">
+  2018-03-08
+</span>
+
+    
+
+    
+
+  </div>
+  <div class="article-entry">
+    <p>1.多线程的实现方式：一种是继承Thread类；另一种是实现Runnable接口。两种方式都要通过重写run()方法来定义线程的行为，推荐使用后者，因为Java中的继承是单继承，一个类有一个父类，如果继承了Thread类就无法再继承其他类了，显然使用Runnable接口更为灵活。Java 5以后创建线程还有第三种方式：实现Callable接口，该接口中的call方法可以在线程执行结束时产生一个返回值。<br>import java.util.ArrayList;<br>import java.util.List;<br>import java.util.concurrent.Callable;<br>import java.util.concurrent.ExecutorService;<br>import java.util.concurrent.Executors;<br>import java.util.concurrent.Future;</p>
+<p>class MyTask implements Callable<integer> {<br>    private int upperBounds;</integer></p>
+<pre><code>public MyTask(int upperBounds) {
+    this.upperBounds = upperBounds;
+}
+
+@Override
+public Integer call() throws Exception {
+    int sum = 0; 
+    for(int i = 1; i &lt;= upperBounds; i++) {
+        sum += i;
+    }
+    return sum;
+}
+</code></pre><p>}</p>
+<p>class Test {<br>    public static void main(String[] args) throws Exception {<br>        List&lt;Future<integer>&gt; list = new ArrayList&lt;&gt;();<br>        ExecutorService service = Executors.newFixedThreadPool(10);<br>        for(int i = 0; i &lt; 10; i++) {<br>            list.add(service.submit(new MyTask((int) (Math.random() * 100))));<br>        }</integer></p>
+<pre><code>    int sum = 0;
+    for(Future&lt;Integer&gt; future : list) {
+        // while(!future.isDone()) ;
+        sum += future.get();
+    }
+
+    System.out.println(sum);
+}
+</code></pre><p>}</p>
+<ol>
+<li>synchronized关键字的用法：synchronized关键字可以将对象或者方法标记为同步，以实现对对象和方法的互斥访问，可以用synchronized(对象) { … }定义同步代码块，或者在声明方法时将synchronized作为方法的修饰符。</li>
+</ol>
+<ul>
+<li>wait()：使一个线程处于等待（阻塞）状态，并且释放所持有的对象的锁；</li>
+<li>sleep()：使一个正在运行的线程处于睡眠状态，是一个静态方法，调用此方法要处理InterruptedException异常；</li>
+<li>notify()：唤醒一个处于等待状态的线程，当然在调用此方法的时候，并不能确切的唤醒某一个等待状态的线程，而是由JVM确定唤醒哪个线程，而且与优先级无关；</li>
+<li>notityAll()：唤醒所有处于等待状态的线程，该方法并不是将对象的锁给所有线程，而是让它们竞争，只有获得锁的线程才能进入就绪状态；</li>
+<li><p>Java 5通过Lock接口提供了显式的锁机制（explicit lock），增强了灵活性以及对线程的协调。Lock接口中定义了加锁（lock()）和解锁（unlock()）的方法，同时还提供了newCondition()方法来产生用于线程之间通信的Condition对象；此外，Java 5还提供了信号量机制（semaphore），信号量可以用来限制对某个共享资源进行访问的线程的数量。在对资源进行访问之前，线程必须得到信号量的许可（调用Semaphore对象的acquire()方法）；在完成对资源的访问后，线程必须向信号量归还许可（调用Semaphore对象的release()方法）。<br>/**</p>
+<ul>
+<li>银行账户</li>
+<li><p>@author 骆昊<br><em>
+</em>/<br>public class Account {<br>private double balance;     // 账户余额<br>/**</p>
+<ul>
+<li>存款</li>
+<li>@param money 存入金额<br>*/<br>public synchronized void deposit(double money) {<br> double newBalance = balance + money;<br> try {<pre><code>Thread.sleep(10);   // 模拟此业务需要一段处理时间
+</code></pre> }<br> catch(InterruptedException ex) {<pre><code>ex.printStackTrace();
+</code></pre> }<br> balance = newBalance;<br>}<br>/**</li>
+<li>获得账户余额<br>*/<br>public double getBalance() {<br> return balance;<br>}<br>}</li>
+</ul>
+<p>在线程调用存款方法时对银行账户进行同步<br>/**</p>
+</li>
+<li>存钱线程</li>
+<li>@author 骆昊<br><em>
+</em>/<br>public class AddMoneyThread implements Runnable {<br>private Account account;    // 存入账户<br>private double money;       // 存入金额<br>public AddMoneyThread(Account account, double money) {<pre><code>this.account = account;
+this.money = money;
+</code></pre>}<br>@Override<br>public void run() {<pre><code>synchronized (account) {
+    account.deposit(money); 
+}
+</code></pre>}</li>
+</ul>
+</li>
+</ul>
+<p>}<br>    通过Java 5显示的锁机制，为每个银行账户创建一个锁对象，在存款操作进行加锁和解锁的操作</p>
+<p>import java.util.concurrent.locks.Lock;<br>import java.util.concurrent.locks.ReentrantLock;</p>
+<p>/**</p>
+<ul>
+<li>银行账户</li>
+<li></li>
+<li><p>@author 骆昊<br><em>
+</em>/<br>public class Account {<br> private Lock accountLock = new ReentrantLock();<br> private double balance; // 账户余额</p>
+<p> /**</p>
+<ul>
+<li>存款</li>
+<li></li>
+<li>@param money</li>
+<li><p>存入金额<br>*/<br>public void deposit(double money) {<br>accountLock.lock();<br>try {<br>double newBalance = balance + money;<br>try {<br>Thread.sleep(10); // 模拟此业务需要一段处理时间<br>}<br>catch (InterruptedException ex) {<br>ex.printStackTrace();<br>}<br>balance = newBalance;<br>}<br>finally {<br>accountLock.unlock();<br>}<br>}</p>
+<p>/**</p>
+</li>
+<li>获得账户余额<br>*/<br>public double getBalance() {<br> return balance;<br>}<br>}</li>
+</ul>
+</li>
+</ul>
+<p>3.线程池：在面向对象编程中，创建和销毁对象是很费时间的，因为创建一个对象要获取内存资源或者其它更多资源。在Java中更是如此，虚拟机将试图跟踪每一个对象，以便能够在对象销毁后进行垃圾回收。所以提高服务程序效率的一个手段就是尽可能减少创建和销毁对象的次数，特别是一些很耗资源的对象创建和销毁，这就是”池化资源”技术产生的原因。线程池顾名思义就是事先创建若干个可执行的线程放入一个池（容器）中，需要的时候从池中获取线程不用自行创建，使用完毕不需要销毁线程而是放回池中，从而减少创建和销毁线程对象的开销。</p>
+<p>4.synchronized 和java.util.concurrent.locks.Lock的异同: Lock 能完成synchronized所实现的所有功能；主要不同点：Lock有比synchronized更精确的线程语义和更好的性能，而且不强制性的要求一定要获得锁。synchronized会自动释放锁，而Lock一定要求程序员手工释放，并且最好在finally 块中释放（这是释放外部资源的最好的地方）。</p>
+
+  </div>
+  <footer class="article-footer">
+    
+  <div class="cc">
+    <a href="http://creativecommons.org/licenses/by-sa/4.0/deed.en" target="_blank" title="Attribution-ShareAlike">
+      <img src="/images/cc/cc.png">
+      
+          <img src="/images/cc/by.png">
+        
+          <img src="/images/cc/sa.png">
+      
+      <span>
+        This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
+      </span>
+    </a>
+  </div>
+
+
+    
+
+  </footer>
+</article>
+
+
+
+
+
+
+
+          <div class="main-footer">
+  
+    © 2018 何林鸿个人博客 - Powered by <a href="http://hexo.io" target="_blank">Hexo</a> - Theme <a href="https://github.com/denjones/hexo-theme-chan" target="_blank">Chan</a>
+  
+</div>
+
+      
+        </div>
+      
+    </div>
+  </div>
+  <script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="/PhotoSwipe/photoswipe.css">
+  <link rel="stylesheet" href="/PhotoSwipe/default-skin/default-skin.css">
+
+  <!-- Root element of PhotoSwipe. Must have class pswp. -->
+  <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe.
+             It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+      <!-- Container that holds slides.
+                PhotoSwipe keeps only 3 of them in the DOM to save memory.
+                Don't modify these 3 pswp__item elements, data is added later on. -->
+      <div class="pswp__container">
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+      </div>
+
+      <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+      <div class="pswp__ui pswp__ui--hidden">
+
+        <div class="pswp__top-bar">
+
+          <!--  Controls are self-explanatory. Order can be changed. -->
+
+          <div class="pswp__counter"></div>
+
+          <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+          <button class="pswp__button pswp__button--share" title="Share"></button>
+
+          <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+          <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+          <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+          <!-- element will get class pswp__preloader--active when preloader is running -->
+          <div class="pswp__preloader">
+            <div class="pswp__preloader__icn">
+              <div class="pswp__preloader__cut">
+                <div class="pswp__preloader__donut"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+          <div class="pswp__share-tooltip"></div>
+        </div>
+
+        <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+
+        <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+        <div class="pswp__caption">
+          <div class="pswp__caption__center"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/PhotoSwipe/photoswipe.js"></script>
+  <script src="/PhotoSwipe/photoswipe-ui-default.js"></script>
+
+
+<script src="/perfect-scrollbar/js/min/perfect-scrollbar.min.js"></script>
+<script src="/scripts/main.js"></script>
+
+</body>
+</html>
